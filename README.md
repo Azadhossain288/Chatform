@@ -4,8 +4,16 @@ Build a form, publish it, add a friendly chat widget to any website with one lin
 
 Instead of showing a long form, ChatForm asks the questions **one at a time in a chat window**, which feels more natural and is easier to finish.
 
-**Live demo:** _add your Vercel URL here_
-**Test the widget:** _add your Vercel URL_ `/demo-site.html?form=YOUR_SLUG`
+## Live demo
+
+| What | Link |
+|---|---|
+| Website | https://chatform-umber.vercel.app |
+| Example form (public link) | https://chatform-umber.vercel.app/f/x9a2q8wl |
+| Widget on a test website | https://chatform-umber.vercel.app/demo-site.html?form=x9a2q8wl |
+| Source code | https://github.com/Azadhossain288/Chatform |
+
+To try it yourself: open the website, sign up, create a form, publish it and use the code in the **Share and embed** tab.
 
 ## Features
 
@@ -28,6 +36,7 @@ AI features, payments and subscriptions are out of scope for this MVP.
 | Backend | Next.js API routes |
 | Database and auth | Supabase (PostgreSQL + Auth) |
 | Validation | Zod (shared by the chat UI and the server) |
+| Hosting | Vercel |
 | Version control | Git and GitHub |
 
 ## Getting started
@@ -40,8 +49,8 @@ AI features, payments and subscriptions are out of scope for this MVP.
 ### 2. Install
 
 ```bash
-git clone https://github.com/YOUR-USERNAME/chatform.git
-cd chatform
+git clone https://github.com/Azadhossain288/Chatform.git
+cd Chatform
 npm install
 ```
 
@@ -89,7 +98,7 @@ Open http://localhost:3000.
 After publishing a form, paste this line into your website just before the closing `</body>` tag:
 
 ```html
-<script src="https://YOUR-APP-URL/widget.js" data-form="YOUR-SLUG" async></script>
+<script src="https://chatform-umber.vercel.app/widget.js" data-form="YOUR-SLUG" async></script>
 ```
 
 The slug is the last part of the form's public link (`/f/<slug>`). The **Share and embed** tab shows the complete line ready to copy.
@@ -147,8 +156,10 @@ src/middleware.ts        protects /dashboard
 
 1. Push the project to GitHub
 2. Import the repository in [Vercel](https://vercel.com)
-3. Add the four environment variables. Set `NEXT_PUBLIC_APP_URL` to your Vercel URL (no trailing slash)
+3. Add the four environment variables. Set `NEXT_PUBLIC_APP_URL` to `https://chatform-umber.vercel.app` (no trailing slash)
 4. Deploy. If you change an environment variable later, redeploy so it takes effect
+
+Every `git push` to `main` deploys a new version automatically.
 
 ## Scripts
 
