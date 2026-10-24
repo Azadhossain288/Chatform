@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Sample Shop - ChatForm test website</title>
+    <style>
+      body { margin: 0; font-family: system-ui, sans-serif; color: #1e293b; line-height: 1.6; }
+      header { background: #0f172a; color: #fff; padding: 16px 24px; font-weight: 600; }
+      main { max-width: 640px; margin: 0 auto; padding: 32px 24px; }
+      h1 { font-family: Georgia, serif; font-size: 2rem; margin: 0 0 8px; }
+      .note { background: #f1f5f9; border-radius: 8px; padding: 12px 16px; font-size: 0.9rem; }
+      .warn { background: #fef3c7; color: #78350f; }
+      code { background: #e2e8f0; padding: 1px 5px; border-radius: 4px; }
+    </style>
+  </head>
+  <body>
+    <header>Sample Shop (a pretend external website)</header>
+    <main>
+      <h1>Welcome to our shop</h1>
+      <p>This page stands in for your own website. Click the chat button in the corner to try your form.</p>
+      <p id="status" class="note"></p>
+    </main>
+
+    <script>
+      // URL theke ?form=SLUG pore, customer ja kore thik tai widget boshay
+      var slug = new URLSearchParams(location.search).get('form');
+      var status = document.getElementById('statuse');
+
+      if (slug) {
+        status.textContent = 'Widget loaded for form: ' + slug;
+        var s = document.createElement('script');
+        s.src = '/widget.js';
+        s.async = true;
+        s.setAttribute('data-form', slug);
+        document.body.appendChild(s);
+      } else {
+        status.className = 'note warn';
+        status.innerHTML = 'No form selected. Open this page as <code>/demo-site.html?form=YOUR_SLUG</code>.';
+      }
+    </script>
+  </body>
+</html>
